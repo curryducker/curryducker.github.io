@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+@media screen and (orientation:landscape) {
+    .container {
+        width: 100%;
+        height: 100%;
+        background: #292d38;
+    }
+    .menu {
+        background: #171b24;
+    }
+    .links {
+        position: absolute;
+        left: 50%;
+        margin-top: 7px;
+        transform: translateX(-50%);
+        display: inline-flex;
+    }
+    .links li {
+        list-style: none;
+        width: 50px;
+    }
+    .logo {
+        width: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        border-radius: 10px;
+    }
+    .g {
+        margin-right: 5px;
+        margin-left: -6px;
+    }
+    .github img {
+        width: 38px;
+        margin-top: 10px;
+        margin-left: 6px;
+    }
+    .c {
+        margin-right: 3px;
+    }
+    .curseforge img {
+        width: 50px;
+        margin-top: 15px;
+    }
+    .d {
+        margin-left: 3px;
+    }
+    .discord img {
+        margin-left: 4px;
+        width: 40px;
+        margin-top: 13px;
+    }
+    .m {
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+    .modrinth img {
+        margin-left: 3px;
+        width: 38px;
+        margin-top: 9px;
+    }
+    .projects {
+        width: fit-content;
+        max-width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: auto;
+        transform: translate(-50%, -50%);
+    }
+    .projects ul {
+        display: inline-flex;
+    }
+    .projects ul li {
+        list-style: none;
+        margin: 0 20px;
+    }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 10px;
+        color:#ffffff;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
+    .card_container {
+        padding: 3% 16px;
+        background: #42455a;
+        border-radius: 0 0 10px 10px;
+    }
+    .card_container p{
+        padding-top: 1%;
+    }
+    .card img {
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+    }
+}
+@media screen and (orientation:portrait) {
+    .container{
+        width: 100%;
+        height: 100%;
+        background: #292d38;
+    }
+    .menu {
+        background: #171b24;
+    }
+    .links {
+        position: absolute;
+        left: 50%;
+        margin-top: 7px;
+        transform: translateX(-50%);
+        display: inline-flex;
+    }
+    .links li {
+        list-style: none;
+        width: 50px;
+    }
+    .logo {
+        width: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        border-radius: 10px;
+    }
+    .g {
+        margin-right: 5px;
+        margin-left: -6px;
+    }
+    .github img {
+        width: 38px;
+        margin-top: 10px;
+        margin-left: 6px;
+    }
+    .c {
+        margin-right: 3px;
+    }
+    .curseforge img {
+        width: 50px;
+        margin-top: 15px;
+    }
+    .d {
+        margin-left: 3px;
+    }
+    .discord img {
+        margin-left: 4px;
+        width: 40px;
+        margin-top: 13px;
+    }
+    .m {
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+    .modrinth img {
+        margin-left: 3px;
+        width: 38px;
+        margin-top: 9px;
+    }
+    .projects {
+        height: fit-content;
+        max-height: 75%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: auto;
+        transform: translate(-50%, -50%);
+    }
+    .projects ul{
+        display: inline;
+    }
+    .projects ul li{
+        list-style: none;
+        margin: 20px 0;
+    }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        border-radius: 10px;
+        color:#ffffff;
+    }
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        transform: scale(1.05);
+    }
+    .card_container {
+        padding: 3% 16px;
+        background: #42455a;
+        border-radius: 0 0 10px 10px;
+    }
+    .card_container p{
+        padding-top: 1%;
+    }
+    .card img {
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+    }
+}
