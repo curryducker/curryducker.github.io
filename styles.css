@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
     transition: background-color 0.3s;
 }
+
 /* Dark mode styles */
 body.dark-mode {
     background-color: #1a1a1a;
@@ -19,6 +20,11 @@ body.dark-mode .dark-mode-switch label {
 /* Adjust the background color for dark mode */
 body.dark-mode .dark-mode-switch label::after {
     background-color: #333;
+}
+body.dark-mode .tile {
+    background-color: #333;
+    border: 3px solid rgb(32, 32, 32);
+    color: white;
 }
 
 /* Basic Styles */
@@ -51,8 +57,9 @@ body.dark-mode .dark-mode-switch label::after {
 }
 /* Dark mode switch styles */
 .dark-mode-switch {
+    display: flex;
+    align-items: center;
     margin-right: 10px;
-    cursor: pointer;
 }
 .dark-mode-switch label {
     position: relative;
@@ -61,6 +68,8 @@ body.dark-mode .dark-mode-switch label::after {
     height: 20px;
     background-color: #ccc;
     border-radius: 10px;
+    margin-right: 8px;
+    cursor: pointer;
 }
 .dark-mode-switch label::after {
     content: "";
@@ -72,6 +81,15 @@ body.dark-mode .dark-mode-switch label::after {
     background-color: #fff;
     border-radius: 50%;
     transition: transform 0.3s;
+}
+.dark-mode-icon {
+    font-size: 18px;
+    margin-right: 10px; /* Add space between icon and label */
+    color: #ffee00;
+    display: flex;
+    align-items: center;
+    cursor: default;
+    user-select: none;
 }
 input[type="checkbox"] {
     display: none; /* Hide the actual checkbox input */
@@ -98,7 +116,7 @@ input[type="checkbox"]:checked + label::after {
     height: 200px;
     background-color: #fff;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 3px solid #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,7 +139,7 @@ input[type="checkbox"]:checked + label::after {
 }
 .footer {
     text-align: center;
-    padding: 20px;
+    padding: 5px;
     background-color: #333;
     color: white;
 }

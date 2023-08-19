@@ -5,18 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Responsive Website</title>
 <link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="dark-mode">
 
 <div class="navbar">
   <div class="navbar-left">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-    <a href="https://www.example.com" target="_blank">External Site</a>
+    <a href="https://curryducker.nl">Home</a>
+    <a href="https://modrinth.com/user/curryducker" target="_blank">Modrinth</a>
+    <a href="https://curseforge.com/members/curryduckergames/projects" target="_blank">CurseForge</a>
+    <a href="https://teamdiopside.nl/discord" target="_blank">Discord</a>
+    <a href="https://teamdiopside.nl" target="_blank">Team Diopside</a>
   </div>
   <div class="navbar-right dark-mode-switch">
+    <div class="dark-mode-icon">
+      <span class="material-icons" id="modeIcon"></span>
+    </div>
     <input type="checkbox" id="darkModeToggle">
     <label for="darkModeToggle"></label>
   </div>
@@ -26,11 +30,11 @@
   <div class="tile-container">
     <div class="tile">
       <img src="assets/VP_720x720.png" alt="Image">
-      <p>Hover me</p>
+      <p>Vanilla Paradise</p>
     </div>
     <div class="tile">
       <img src="assets/toolcompat720.png" alt="Image">
-      <p>Hover me</p>
+      <p>Tool Compat</p>
     </div>
     <div class="tile">
       <img src="assets/VP_720x720.png" alt="Image">
@@ -40,7 +44,7 @@
 </div>
 
 <div class="footer">
-  <p>&copy; 2023 Your Website. All rights reserved.</p>
+  <p>&copy; 2023 curryducker. All rights reserved.</p>
 </div>
 
 <script src="script.js"></script>
