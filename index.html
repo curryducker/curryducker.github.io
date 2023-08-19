@@ -82,6 +82,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px 0;
   }
   .tile-container {
     display: flex;
@@ -101,8 +102,7 @@
     justify-content: center;
     transition: transform 0.3s;
     overflow: hidden;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 0;
   }
   .tile:hover {
     transform: scale(1.1);
@@ -152,15 +152,15 @@
 <div class="center-content">
   <div class="tile-container">
     <div class="tile">
-      <img src="VP_720x720.png" alt="Image">
+      <img src="assets/VP_720x720.png" alt="Image">
       <p>Hover me</p>
     </div>
     <div class="tile">
-      <img src="your-image.jpg" alt="Image">
+      <img src="assets/toolcompat720.png" alt="Image">
       <p>Hover me</p>
     </div>
     <div class="tile">
-      <img src="your-image.jpg" alt="Image">
+      <img src="assets/VP_720x720.png" alt="Image">
       <p>Hover me</p>
     </div>
   </div>
@@ -176,7 +176,7 @@
     document.body.classList.toggle('dark-mode', darkModeToggle.checked);
     localStorage.setItem('darkMode', darkModeToggle.checked);
   });
-  
+
   const initialDarkModeState = localStorage.getItem('darkMode') === 'true';
   darkModeToggle.checked = initialDarkModeState;
   document.body.classList.toggle('dark-mode', initialDarkModeState);
