@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curryducker</title>
+<title>Responsive Website</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -13,14 +13,30 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.3s;
+  }
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #1a1a1a;
   }
   .navbar {
     background-color: #333;
     overflow: hidden;
+    display: flex;
+    justify-content: space-between; /* Align content space between */
+    align-items: center; /* Center vertically */
+    padding: 0 20px; /* Add padding to the sides */
+  }
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-right {
+    display: flex;
+    align-items: center;
   }
   .navbar a {
-    float: left;
-    display: block;
+    display: inline-block;
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -29,6 +45,36 @@
   .navbar a:hover {
     background-color: #ddd;
     color: black;
+  }
+  /* Dark mode switch styles */
+  .dark-mode-switch {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .dark-mode-switch label {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+  .dark-mode-switch label::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+  input[type="checkbox"] {
+    display: none; /* Hide the actual checkbox input */
+  }
+  input[type="checkbox"]:checked + label::after {
+    transform: translateX(20px); /* Move the knob to the right */
   }
   .center-content {
     flex: 1;
@@ -78,24 +124,30 @@
   }
 </style>
 </head>
-<body>
+<body class="dark-mode">
 
 <div class="navbar">
-  <a href="#">Home</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Contact</a>
-  <a href="https://www.example.com" target="_blank">External Site</a>
+  <div class="navbar-left">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+    <a href="https://www.example.com" target="_blank">External Site</a>
+  </div>
+  <div class="navbar-right dark-mode-switch">
+    <input type="checkbox" id="darkModeToggle">
+    <label for="darkModeToggle"></label>
+  </div>
 </div>
 
 <div class="center-content">
   <div class="tile-container">
     <div class="tile">
-      <img src="assets/VP_720x720.png" alt="Image">
+      <img src="VP_720x720.png" alt="Image">
       <p>Hover me</p>
     </div>
     <div class="tile">
-      <img src="assets/toolcompat720.png" alt="Image">
+      <img src="your-image.jpg" alt="Image">
       <p>Hover me</p>
     </div>
     <div class="tile">
@@ -108,6 +160,13 @@
 <div class="footer">
   <p>&copy; 2023 Your Website. All rights reserved.</p>
 </div>
+
+<script>
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  darkModeToggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode', darkModeToggle.checked);
+  });
+</script>
 
 </body>
 </html>
