@@ -20,16 +20,23 @@ if (!hasDarkModePreference) {
 darkModeToggle.addEventListener('change', () => {
   document.body.classList.toggle('dark-mode', darkModeToggle.checked);
   localStorage.setItem('darkMode', darkModeToggle.checked);
-  modeIcon.textContent = darkModeToggle.checked ? 'bedtime' : 'wb_sunny'; // Update icon when toggling
+  modeIcon.style.opacity = 0;
+  setTimeout(() => {
+    modeIcon.textContent = darkModeToggle.checked ? 'bedtime' : 'wb_sunny';
+    modeIcon.style.opacity = 1;
+  }, 300);
 });
 
-const foldableMenu = document.querySelector('.foldable-menu');
-const logoImage = document.querySelector('.navbar-logo img');
-const menuLogo = document.querySelector('.menu-logo');
+const menu = document.querySelector('.foldable-menu');
+const logo = document.querySelector('.navbar-logo img');
 
-logoImage.addEventListener('click', () => {
-  foldableMenu.classList.toggle('open');
-});
-menuLogo.addEventListener('click', () => {
-  foldableMenu.classList.toggle('open');
+logo.addEventListener('click', () => {
+  if (menu.classList.contains('open')) {
+    menu.classList.add('close');
+    setTimeout(() => {
+      menu.classList.remove('open', 'close');
+    }, 300); // Match the animation duration
+  } else {
+    menu.classList.add('open');
+  }
 });
