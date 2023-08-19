@@ -92,6 +92,7 @@ body.dark-mode .footer {
     max-height: 30px;
     width: calc(100% - 40px);
     border-bottom: 1px solid #e0e0e0;
+    display: none;
 }
 .menu-logo img {
     border-radius: 5px;
@@ -233,5 +234,8 @@ input[type="checkbox"]:checked + label::after {
     }
     .foldable-menu.open {
         display: flex; /* Show the foldable menu when the open class is present */
+    }
+    .menu-logo {
+        display: flex;
     }
 }
