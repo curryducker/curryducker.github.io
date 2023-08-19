@@ -1,10 +1,113 @@
-<html>
-    <head>
-        <title>curryducker</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="assets/curryround.png">
-    </head>
-    <body>
-        <p>This page is currently under construction.</p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curryducker</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .navbar {
+    background-color: #333;
+    overflow: hidden;
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .center-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .tile-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .tile {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .tile:hover {
+    transform: scale(1.1);
+  }
+  .tile p {
+    margin-bottom: 9%;
+    margin-top: 6%;
+  }
+  .tile img {
+    width: 100%;
+    max-height: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="#">Home</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Contact</a>
+  <a href="https://www.example.com" target="_blank">External Site</a>
+</div>
+
+<div class="center-content">
+  <div class="tile-container">
+    <div class="tile">
+      <img src="assets/VP_720x720.png" alt="Image">
+      <p>Hover me</p>
+    </div>
+    <div class="tile">
+      <img src="assets/toolcompat720.png" alt="Image">
+      <p>Hover me</p>
+    </div>
+    <div class="tile">
+      <img src="your-image.jpg" alt="Image">
+      <p>Hover me</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>&copy; 2023 Your Website. All rights reserved.</p>
+</div>
+
+</body>
 </html>
