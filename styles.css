@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,6 +9,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     transition: background-color 0.3s;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
 /* Dark mode styles */
@@ -21,6 +24,9 @@ body.dark-mode .dark-mode-switch label {
 body.dark-mode .dark-mode-switch label::after {
     background-color: #333;
 }
+body.dark-mode .h1 {
+    color: white;
+}
 body.dark-mode .tile {
     background-color: #333;
     border: 3px solid rgb(32, 32, 32);
@@ -29,12 +35,22 @@ body.dark-mode .tile {
 
 /* Basic Styles */
 .navbar {
-    background-color: #333;
+    background-color: #292b2c;
     overflow: hidden;
     display: flex;
     justify-content: space-between; /* Align content space between */
     align-items: center; /* Center vertically */
     padding: 0 20px; /* Add padding to the sides */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.navbar-logo {
+    padding: 10px; /* Adjust padding as needed */
+    padding-right: 42px;
+    max-height: 30px;
+}
+.navbar-logo img {
+    border-radius: 5px;
+    max-height: 30px /* Adjust the height of the logo */
 }
 .navbar-left {
     display: flex;
@@ -45,15 +61,17 @@ body.dark-mode .tile {
     align-items: center;
 }
 .navbar a {
+    color: #ffffff;
     display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    padding: 14px 15px;
+    transition: color 0.3s;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
 }
 .navbar a:hover {
-    background-color: #ddd;
-    color: black;
+    color: #f0ad4e;
+    border-bottom: 2px solid #f0ad4e;
 }
 /* Dark mode switch styles */
 .dark-mode-switch {
@@ -97,6 +115,8 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked + label::after {
     transform: translateX(20px); /* Move the knob to the right */
 }
+
+/* Center Content */
 .center-content {
     flex: 1;
     display: flex;
@@ -124,6 +144,8 @@ input[type="checkbox"]:checked + label::after {
     transition: transform 0.3s;
     overflow: hidden;
     padding: 20px 0;
+    text-decoration: none;
+    color: black;
 }
 .tile:hover {
     transform: scale(1.1);
@@ -137,6 +159,8 @@ input[type="checkbox"]:checked + label::after {
     max-height: 100%;
     border-radius: 10px 10px 0 0;
 }
+
+/* Footer */
 .footer {
     text-align: center;
     padding: 5px;
