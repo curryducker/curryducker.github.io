@@ -32,10 +32,30 @@ body.dark-mode .tile {
     border: 3px solid rgb(32, 32, 32);
     color: white;
 }
+body.dark-mode .navbar {
+    background-color: #292b2c;
+}
+body.dark-mode .navbar a {
+    color: #ffffff;
+}
+body.dark-mode .navbar a:hover {
+    color: #f0ad4e;
+    border-bottom: 2px solid #f0ad4e;
+}
+body.dark-mode .foldable-menu {
+    background-color: #292b2c;
+}
+body.dark-mode .menu-logo {
+    border-bottom: 1px solid #e0e0e0;
+}
+body.dark-mode .footer {
+    background-color: #333;
+    color: white;
+}
 
 /* Basic Styles */
 .navbar {
-    background-color: #292b2c;
+    background-color: white;
     overflow: hidden;
     display: flex;
     justify-content: space-between; /* Align content space between */
@@ -47,10 +67,37 @@ body.dark-mode .tile {
     padding: 10px; /* Adjust padding as needed */
     padding-right: 42px;
     max-height: 30px;
+    max-width: 30px;
 }
 .navbar-logo img {
     border-radius: 5px;
-    max-height: 30px /* Adjust the height of the logo */
+    max-height: 30px; /* Adjust the height of the logo */
+    max-width: 30px;
+}
+.foldable-menu {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.menu-logo {
+    padding: 10px; /* Adjust padding as needed */
+    padding-left: 30px;
+    max-height: 30px;
+    width: calc(100% - 40px);
+    border-bottom: 1px solid #e0e0e0;
+}
+.menu-logo img {
+    border-radius: 5px;
+    max-height: 30px;
+    max-width: 30px;
+    cursor: pointer;
 }
 .navbar-left {
     display: flex;
@@ -61,7 +108,7 @@ body.dark-mode .tile {
     align-items: center;
 }
 .navbar a {
-    color: #ffffff;
+    color: #333;
     display: inline-block;
     text-decoration: none;
     padding: 14px 15px;
@@ -125,6 +172,9 @@ input[type="checkbox"]:checked + label::after {
     justify-content: center;
     padding: 20px 0;
 }
+.h1 {
+    text-align: center;
+}
 .tile-container {
     display: flex;
     justify-content: center;
@@ -164,15 +214,24 @@ input[type="checkbox"]:checked + label::after {
 .footer {
     text-align: center;
     padding: 5px;
-    background-color: #333;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     .tile {
         width: 80%; /* Adjust width for mobile */
-        max-width: 300px; /* Maximum width for mobile */
+        max-width: 200px; /* Maximum width for mobile */
         margin: 10px auto; /* Center tiles */
+    }
+    .navbar-logo img {
+        cursor: pointer; /* Add cursor pointer for clicking */
+    }
+    .navbar-left {
+        display: none; /* Hide the original navbar links */
+    }
+    .foldable-menu.open {
+        display: flex; /* Show the foldable menu when the open class is present */
     }
 }

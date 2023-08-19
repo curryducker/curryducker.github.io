@@ -22,3 +22,14 @@ darkModeToggle.addEventListener('change', () => {
   localStorage.setItem('darkMode', darkModeToggle.checked);
   modeIcon.textContent = darkModeToggle.checked ? 'bedtime' : 'wb_sunny'; // Update icon when toggling
 });
+
+const foldableMenu = document.querySelector('.foldable-menu');
+const logoImage = document.querySelector('.navbar-logo img');
+const menuLogo = document.querySelector('.menu-logo');
+
+logoImage.addEventListener('click', () => {
+  foldableMenu.classList.toggle('open');
+});
+menuLogo.addEventListener('click', () => {
+  foldableMenu.classList.toggle('open');
+});
