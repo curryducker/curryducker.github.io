@@ -337,7 +337,7 @@ input[type="checkbox"]:checked + label::after {
     }
     .menu-icon {
         display: flex;
-        padding-right: 58px;
+        margin-right: 58px;
         cursor: pointer;
         user-select: none;
     }
@@ -378,4 +378,11 @@ input[type="checkbox"]:checked + label::after {
 }
 ::-webkit-scrollbar-track {
     background-color: var(--scrollbar-track-color);
+}
+
+.noSelect {
+    -webkit-tap-highlight-color: transparent;
+}
+.noSelect:focus {
+    outline: none !important;
 }
