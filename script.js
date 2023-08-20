@@ -28,15 +28,24 @@ darkModeToggle.addEventListener('change', () => {
 });
 
 const menu = document.querySelector('.foldable-menu');
-const logo = document.querySelector('.navbar-logo img');
+const button = document.querySelector('.menu-icon');
+menuIcon.textContent = 'menu';
 
-logo.addEventListener('click', () => {
+button.addEventListener('click', () => {
   if (menu.classList.contains('open')) {
+    menuIcon.style.opacity = 0;
     menu.classList.add('close');
     setTimeout(() => {
       menu.classList.remove('open', 'close');
+      menuIcon.textContent = 'menu';
+      menuIcon.style.opacity = 1;
     }, 300); // Match the animation duration
   } else {
     menu.classList.add('open');
+    menuIcon.style.opacity = 0;
+    setTimeout(() => {
+      menuIcon.textContent = 'close';
+      menuIcon.style.opacity = 1;
+    }, 300);
   }
 });
