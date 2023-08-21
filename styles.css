@@ -248,7 +248,10 @@ input[type="checkbox"]:checked + label::after {
     color: black;
     background-color: #fff;
     font-size: 22px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.button:hover {
+    transform: scale(1.1);
 }
 .button p {
     transition: color 1s;
