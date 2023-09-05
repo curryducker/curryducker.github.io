@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="icon" href="../assets/icon.png">
+</head>
+<body class="noSelect" class="dark-mode">
+
+<div class="navbar">
+  <div class="menu-icon">
+    <span class="material-icons" id="menuIcon"></span>
+  </div>
+  <div class="navbar-logo">
+    <img src="../assets/logo.png" alt="Curryducker">
+  </div>
+  <div class="foldable-menu">
+    <a href="../">Home</a>
+    <a href="../projects">Projects</a>
+    <a href="../music">Music</a>
+    <a href="https://teamdiopside.nl" target="_blank" rel="noopener noreferrer">Team Diopside</a>
+  </div>
+  <div class="navbar-left">
+    <a href="../">Home</a>
+    <a href="../projects">Projects</a>
+    <a href="../music">Music</a>
+    <a href="https://teamdiopside.nl" target="_blank" rel="noopener noreferrer">Team Diopside</a>
+  </div>
+  <div class="navbar-right dark-mode-switch">
+    <div class="dark-mode-icon">
+      <span class="material-icons" id="modeIcon"></span>
+    </div>
+    <input type="checkbox" id="darkModeToggle">
+    <label for="darkModeToggle"></label>
+  </div>
+</div>
+
+<div class="center-content">
+   <h1 class="text">Verjaardag Datum Prikker</h1>
+   <form action="https://formspree.io/f/mdorzwge" method="post" style="position: relative; display: flex; flex-direction: column;">
+      <label class="text" for="name" style="margin-bottom: 10px;">Naam</label>
+      <input type="text" id="name" name="Naam" required>
+      <hr style="width: 100%; margin: 20px 0px;">
+
+      <label class="text" style="margin-bottom: 10px;">Welke avonden kun je?</label>
+      
+      <label class="toggle-container">
+         <input type="checkbox" name="Beschikbare Dagen" value="22 September">
+         <span class="toggle-slider"></span>
+         <span class="text" style="margin-left: 5px;">22 September</span>
+      </label>
+
+      <label class="toggle-container">
+         <input type="checkbox" name="Beschikbare Dagen" value="23 September">
+         <span class="toggle-slider"></span>
+         <span class="text" style="margin-left: 5px;">23 September</span>
+      </label>
+
+      <label class="toggle-container">
+         <input type="checkbox" name="Beschikbare Dagen" value="29 September">
+         <span class="toggle-slider"></span>
+         <span class="text" style="margin-left: 5px;">29 September</span>
+      </label>
+
+      <label class="toggle-container">
+        <input type="checkbox" name="Beschikbare Dagen" value="6 Oktober">
+        <span class="toggle-slider"></span>
+        <span class="text" style="margin-left: 5px;">6 Oktober</span>
+     </label>
+
+     <label class="toggle-container">
+      <input type="checkbox" name="Beschikbare Dagen" value="7 Oktober">
+      <span class="toggle-slider"></span>
+      <span class="text" style="margin-left: 5px;">7 Oktober</span>
+   </label><br>
+
+      <input type="submit" value="Submit" class="button" style="margin: 0px 43px">
+  </form>
+</div>
+
+<div class="footer">
+  <div class="footer-social">
+    <a href="https://modrinth.com/user/curryducker" target="_blank"><img src="https://docs.modrinth.com/img/logo.svg" alt="Modrinth"></a>
+    <a href="https://curseforge.com/members/curryduckergames/projects" target="_blank"><img src="https://pbs.twimg.com/profile_images/1675871207499898880/XXsS5Uva_400x400.png" alt="CurseForge" class="cf-icon"></a>
+    <a href="https://teamdiopside.nl/discord" target="_blank"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord"></a>
+    <a href="https://www.reddit.com/user/Curryducker" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bd/Reddit_Logo_Icon.svg/1200px-Reddit_Logo_Icon.svg.png" alt="Reddit"></a>
+    <a href="https://x.com/curryducker" target="_blank"><img src="https://vectorseek.com/wp-content/uploads/2023/07/Twitter-X-New-Logo-Vector-2.png" alt="X" class="x-icon"></a>
+  </div>
+</div>
+
+<script src="../script.js"></script>
+
+</body>
+</html>
