@@ -337,6 +337,7 @@ input[type="checkbox"]:checked + label::after {
     .tile {
         width: 80%; /* Adjust width for mobile */
         max-width: 200px; /* Maximum width for mobile */
+        min-width: 200px; /* Minimum width for mobile */
     }
     .menu-icon {
         display: flex;
