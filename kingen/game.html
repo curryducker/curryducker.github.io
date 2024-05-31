@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Page</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="header">
+        <button id="hamburgerMenu" onclick="toggleMenu()">☰</button>
+        <div class="menu">
+            <button onclick="finishGame()">Finish Game</button>
+            <button onclick="undoAction()">Undo</button>
+            <button onclick="confirmAction()">Confirm</button>
+            <button onclick="toggleFieldFlipped()">Flip Fields</button>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="sidebar" id="leaderboard">
+            <h2>Leaderboard</h2>
+            <p></p>
+        </div>
+        <div class="fields-container">
+            <div class="field" id="field4">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="field" id="field5">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="field" id="field3">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="field" id="field6">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="field" id="field2">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="field" id="field1">
+                <h3></h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="sidebar" id="queue">
+            <h2>Queue</h2>
+            <p></p>
+        </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button onclick="toggleLeaderboard()">Leaderboard</button>
+        <button onclick="toggleQueue()">Queue</button>
+        <p></p>
+        <button onclick="finishGame()">Finish Game</button>
+        <button onclick="undoAction()">Undo</button>
+        <button onclick="confirmAction()">Confirm</button>
+        <button onclick="toggleFieldFlipped()">Flip Fields</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
