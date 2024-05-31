@@ -69,3 +69,21 @@ button#deleteAll {
 button#deleteAll:hover {
     background-color: #c82333;
 }
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Apply the animation to the element with the 'shaking' class */
+.shaking {
+    animation: shake 0.2s;
+}
+
+.error {
+    color: red;
+    margin-top: 0;
+}

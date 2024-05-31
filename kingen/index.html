@@ -10,10 +10,11 @@
     <div class="container">
         <h1>Team Manager</h1>
         <input type="text" id="teamInput" placeholder="Enter team name">
-        <button onclick="addTeam()">Add Team</button>
+        <button id="addTeamButton" onclick="addTeam()">Add Team</button>
+        <p class="error" id="errorField"></p>
         <div id="teamList"></div>
-        <button onclick="startGame()">Start Game</button>
-        <button onclick="deleteAllTeams()">Delete All Teams</button>
+        <button id="startButton" onclick="startGame()">Start Game</button>
+        <button id="deleteAllButton" onclick="deleteAllTeams()">Delete All Teams</button>
     </div>
 
     <script src="teams.js"></script>

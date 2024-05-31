@@ -35,8 +35,17 @@ function addTeam() {
     const teamInput = document.getElementById('teamInput');
     const teamName = teamInput.value.trim();
     if (teamName === '') {
-        alert('Please enter a team name.');
+        shakeElement(document.getElementById('addTeamButton'));
+        setError('Please enter a team name!');
         return;
+    }
+    for (var i = 0; i < teams.length; i++) {
+        const team = teams[i];
+        if (team.teamName == teamName) {
+            shakeElement(document.getElementById('addTeamButton'));
+            setError('Team already exists!');
+            return;
+        }
     }
 
     const teamList = document.getElementById('teamList');
@@ -51,6 +60,24 @@ function addTeam() {
     teams.push({teamName: teamName, points: 0});
     saveTeamsAsJson();
     teamInput.value = '';
+}
+
+function shakeElement(element) {
+    // Add the 'shaking' class to trigger the animation
+    element.classList.add('shaking');
+    
+    // Remove the class after the animation completes
+    setTimeout(function() {
+        element.classList.remove('shaking');
+    }, 200);
+}
+
+function setError(message) {
+    var element = document.getElementById('errorField')
+    element.textContent = message;
+    setTimeout(function() {
+        element.textContent = "";
+    }, 5000);
 }
 
 function removeTeamByName(teamName) {
@@ -74,7 +101,8 @@ function saveTeamsAsJson() {
 function startGame() {
     const teamList = document.getElementById('teamList');
     if (teamList.children.length < 7) {
-        alert('You need at least 7 teams to start!');
+        setError('You need at least 7 teams to start!');
+        shakeElement(document.getElementById('startButton'));
         return;
     }
     if (!gameStarted) {
@@ -99,6 +127,9 @@ function shuffleArray(array) {
 }
 
 function deleteAllTeams() {
+    if (teams.length == 0) {
+        shakeElement(document.getElementById('deleteAllButton'));
+    }
     const teamList = document.getElementById('teamList');
     teams = [];
     saveTeamsAsJson();
