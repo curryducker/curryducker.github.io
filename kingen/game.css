@@ -199,11 +199,15 @@ h4 {
     display: none;
 }
 
+/* Alles hierboven is standaard, dus pc en tablet landscape mode */
+/* Alles hieronder is uitzondering, dus tablet en telefoon portrait mode */
+
 @media (max-width: 850px) {
 
     /* ik wil telefoontjes in portrait forceren */
     @media (max-height: 768px) {
         @media (min-width: 768px) {
+            /* Telefoon landscape mode */
             #mobileBlur {
                 display: block;
                 background-color: var(--clr-bg7);
@@ -212,6 +216,7 @@ h4 {
         }
     }
 
+    /* Tablet portrait mode */
     .sidebar {
         display: none;
     }
@@ -264,6 +269,7 @@ h4 {
 
 @media (max-width: 768px) {
 
+    /* Telefoon portrait mode */
     .header #hamburgerMenu {
         display: block;
     }
