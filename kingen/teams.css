@@ -1,41 +1,62 @@
+:root {
+    --clr-bg1: #29323d;
+    --clr-bg2: #1e242c;
+    --clr-bg3: #3f4956;
+    --clr-bg4: #556776;
+    --clr-bg5: #667b8d;
+    --clr-bg6: #343f4e;
+    --clr-bg7: #14181f;
+    --clr-text: #e5f2fc;
+
+    --radius: 0.5rem;
+
+    --sidebar-margin: 29rem;
+
+    color-scheme: dark;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    color: var(--clr-text);
+    background-color: var(--clr-bg7);
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
     width: 80%;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 2vh;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--clr-bg1);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 50px;
+    border-radius: var(--radius);
     text-align: center;
-}
-
-h1 {
-    color: #333;
 }
 
 input[type="text"] {
     width: 70%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid var(--clr-text);
+    border-radius: var(--radius);
     box-sizing: border-box;
+}
+
+::placeholder {
+    color: var(--clr-text);
+    opacity: 1; /* Firefox */
 }
 
 button {
     padding: 10px 20px;
     border: none;
     background-color: #28a745;
-    color: #fff;
-    border-radius: 4px;
+    color: var(--clr-text);
+    border-radius: var(--radius);
     cursor: pointer;
     margin: 5px;
 }
@@ -45,28 +66,32 @@ button:hover {
 }
 
 #teamList {
-    margin-top: 20px;
-    text-align: left;
+    margin: 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #teamList div {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 3px solid var(--clr-bg7);
+    border-radius: var(--radius);
     margin-bottom: 5px;
-    background-color: #e9ecef;
+    background-color: var(--clr-bg6);
     cursor: pointer;
+    width: fit-content;
+    align-self: center;
 }
 
 #teamList div:hover {
-    background-color: #dee2e6;
+    background-color: var(--clr-bg3);
 }
 
-button#deleteAll {
+#deleteAllButton {
     background-color: #dc3545;
 }
 
-button#deleteAll:hover {
+#deleteAllButton:hover {
     background-color: #c82333;
 }
 
@@ -86,4 +111,39 @@ button#deleteAll:hover {
 .error {
     color: red;
     margin-top: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--clr-bg7);
+}
+
+::-webkit-scrollbar-button {
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--clr-bg4);
+    border-radius: 10000px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--clr-bg5);
+}
+
+.noSelect {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.noSelect:focus {
+    outline: none !important;
 }

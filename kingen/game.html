@@ -3,64 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Page</title>
+    <title>Kingen</title>
     <link rel="stylesheet" href="game.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
-        <button id="hamburgerMenu" onclick="toggleMenu()">☰</button>
+        <button id="hamburgerMenu" class="noSelect" onclick="toggleMenu()">☰</button>
         <div class="menu">
-            <button onclick="finishGame()">Finish Game</button>
-            <button onclick="undoAction()">Undo</button>
-            <button onclick="confirmAction()">Confirm</button>
-            <button onclick="toggleFieldFlipped()">Flip Fields</button>
+            <button class="highlightable" onclick="finishGame()">Finish Game</button>
+            <button class="highlightable" onclick="undoAction()">Undo</button>
+            <button class="highlightable" onclick="toggleFieldFlipped()">Flip Fields</button>
         </div>
     </div>
     <div class="main-content">
         <div class="sidebar" id="leaderboard">
             <h2>Leaderboard</h2>
-            <p></p>
+            <div><p></p></div>
+            <button class="close-sidebar noSelect" onclick="toggleLeaderboard()">Close Loaderboard</button>
         </div>
         <div class="fields-container">
-            <div class="field" id="field4">
+            <div class="field noSelect" id="field4">
+                <h4></h4>
                 <h3></h3>
                 <p></p>
             </div>
-            <div class="field" id="field5">
+            <div class="field noSelect" id="field5">
+                <h4></h4>
                 <h3></h3>
                 <p></p>
             </div>
-            <div class="field" id="field3">
+            <div class="field noSelect" id="field3">
+                <h4></h4>
                 <h3></h3>
                 <p></p>
             </div>
-            <div class="field" id="field6">
+            <div class="field noSelect" id="field6">
+                <h4></h4>
                 <h3></h3>
                 <p></p>
             </div>
-            <div class="field" id="field2">
+            <div class="field noSelect" id="field2">
+                <h4></h4>
                 <h3></h3>
                 <p></p>
             </div>
-            <div class="field" id="field1">
+            <div class="field noSelect" id="field1">
+                <h4></h4>
                 <h3></h3>
                 <p></p>
             </div>
         </div>
         <div class="sidebar" id="queue">
             <h2>Queue</h2>
-            <p></p>
+            <div><p></p></div>
+            <button class="close-sidebar noSelect" onclick="toggleQueue()">Close Queue</button>
+        </div>
+        <div class="tablet-sidebar" id="t-queue">
+            <h2>Queue</h2>
+            <div><p></p></div>
+            <button id="tabletToggle" class="noSelect" onclick="toggleTabletBar()">Show Leaderboard</button>
         </div>
     </div>
 
+    <div id="mobileBlur"></div>
+
     <div class="mobile-menu" id="mobileMenu">
-        <button onclick="toggleLeaderboard()">Leaderboard</button>
-        <button onclick="toggleQueue()">Queue</button>
+        <div></div>
+        <button class="highlightable" onclick="toggleLeaderboard()">Leaderboard</button>
+        <button class="highlightable" onclick="toggleQueue()">Queue</button>
         <p></p>
-        <button onclick="finishGame()">Finish Game</button>
-        <button onclick="undoAction()">Undo</button>
-        <button onclick="confirmAction()">Confirm</button>
-        <button onclick="toggleFieldFlipped()">Flip Fields</button>
+        <button class="highlightable" onclick="finishGame()">Finish Game</button>
+        <button class="highlightable" onclick="undoAction()">Undo</button>
+        <button class="highlightable" onclick="toggleFieldFlipped()">Flip Fields</button>
     </div>
 
     <script src="game.js"></script>

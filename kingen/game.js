@@ -36,10 +36,14 @@ function toggleMenu() {
 function toggleLeaderboard() {
     var leaderboard = document.getElementById('leaderboard');
     var queue = document.getElementById('queue');
-    if (leaderboard.style.display === 'block') {
+    var blur = document.getElementById('mobileBlur');
+
+    if (leaderboard.style.display === 'flex') {
         leaderboard.style.display = 'none';
+        blur.style.display = 'none';
     } else {
-        leaderboard.style.display = 'block';
+        leaderboard.style.display = 'flex';
+        blur.style.display = 'block';
         queue.style.display = 'none';
     }
     document.getElementById('mobileMenu').style.display = 'none';
@@ -48,10 +52,14 @@ function toggleLeaderboard() {
 function toggleQueue() {
     var queue = document.getElementById('queue');
     var leaderboard = document.getElementById('leaderboard');
-    if (queue.style.display === 'block') {
+    var blur = document.getElementById('mobileBlur');
+
+    if (queue.style.display === 'flex') {
         queue.style.display = 'none';
+        blur.style.display = 'none';
     } else {
-        queue.style.display = 'block';
+        queue.style.display = 'flex';
+        blur.style.display = 'block'
         leaderboard.style.display = 'none';
     }
     document.getElementById('mobileMenu').style.display = 'none';
@@ -69,7 +77,7 @@ function select(event) {
     });
     
     if (target.classList.contains('selected')) {
-        fieldSelect = 0;
+        confirmAction();
     } else {
         fieldSelect = parseInt(target.id.toString().substring(5), 10);
     }
@@ -87,12 +95,12 @@ function deselectAll() {
 }
 
 function finishGame() {
-    localStorage.setItem('gameStarted', false);
-    undoArray = [];
-    localStorage.setItem('undoArray', null);
-    alert('Game finished!');
-    // Add your game finishing logic here
-    loadResultsPage()
+    if (window.confirm("Are you sure you want to finish the game?")) {
+        localStorage.setItem('gameStarted', false);
+        undoArray = [];
+        localStorage.setItem('undoArray', null);
+        loadResultsPage()
+    }
 }
 
 async function loadResultsPage() {
@@ -136,13 +144,11 @@ function confirmAction() {
             console.log('Kingvak is af');
             out(1, true);
             fieldSelect = 0;
-            deselectAll();
             break;
         default:
             console.log(`Vak ${fieldSelect} is af`);
             out(7 - fieldSelect, false);
             fieldSelect = 0;
-            deselectAll();
             break;
     }
 }
@@ -189,8 +195,16 @@ function nextUp() {
     while (i < 6) {
         let field = document.getElementById(`field${i + 1}`);
         if (field) {
-            field.querySelector('h3').textContent = `Field ${i + 1}`;
-            field.querySelector('p').textContent = teams[5 - i].teamName + ': ' + teams[5 - i].points + ' punten';
+            var text = `Vak ${i + 1}`
+            if (i == 5) {
+                text = `Kingvak`
+            }
+            field.querySelector('h4').textContent = text;
+            field.querySelector('h3').textContent = teams[5 - i].teamName;
+            field.querySelector('p').textContent = teams[5 - i].points + ' punten';
+            if (i == 5) {
+                field.querySelector('h3').textContent += ' 👑'
+            }
         }
         i++;
     }
@@ -199,6 +213,14 @@ function nextUp() {
     queueDiv.querySelector('p').innerHTML = buildScoreString(teams, 6);
     var leaderboardDiv = document.getElementById('leaderboard');
     leaderboardDiv.querySelector('p').innerHTML = buildScoreString(leaderboard(), 0);
+
+    // Tablet
+    var barDiv = document.getElementsByClassName('tablet-sidebar')[0];
+    if (barDiv.id == 't-queue') {
+        barDiv.querySelector('p').innerHTML = buildScoreString(teams, 6);
+    } else {
+        barDiv.querySelector('p').innerHTML = buildScoreString(leaderboard(), 0);
+    }
 }
 
 function buildScoreString(array, startindex) {
@@ -226,5 +248,20 @@ function flipFields() {
     field5.id = 'field5';
     field6.id = 'field6';
     
+    nextUp();
+}
+
+function toggleTabletBar() {
+    var toggleButton = document.getElementById('tabletToggle');
+    var barDiv = document.getElementsByClassName('tablet-sidebar')[0];
+    if (barDiv.id == 't-queue') {
+        barDiv.id = 't-leaderboard';
+        barDiv.querySelector('h2').textContent = "Leaderboard";
+        toggleButton.textContent = "Show Queue";
+    } else {
+        barDiv.id = 't-queue';
+        barDiv.querySelector('h2').textContent = "Queue";
+        toggleButton.textContent = "Show Leaderboard";
+    }
     nextUp();
 }

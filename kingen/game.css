@@ -16,9 +16,18 @@
     scroll-behavior: smooth;
 }
 
+html {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
 body {
     color: var(--clr-text);
-    background-color: var(--clr-bg1);
+    background-color: var(--clr-bg7);
     font-family: 'Atkinson Hyperlegible', sans-serif;
     font-size: 1.3rem;
     margin: 0;
@@ -29,6 +38,7 @@ body {
     max-height: 100%;
     max-width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .header {
@@ -36,8 +46,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    z-index: 100;
     background-color: var(--clr-bg2);
-    color: white;
+    color: var(--clr-text);
+    border-bottom: 2px solid var(--clr-bg1);
 }
 
 .header .menu {
@@ -49,9 +61,21 @@ body {
 .header button {
     background: none;
     border: none;
-    color: white;
+    border-bottom: 2px solid #00000000;
+    color: var(--clr-text);
     font-size: 16px;
     cursor: pointer;
+}
+
+.highlightable {
+    padding-top: 3px;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid #00000000;
+}
+
+.highlightable:hover {
+    color: #f0ad4e;
+    border-bottom: 2px solid #f0ad4e;
 }
 
 .header #hamburgerMenu {
@@ -63,6 +87,7 @@ body {
     justify-content: space-between;
     padding: 1vw;
     gap: 1vw;
+    margin-top: 2vh;
 }
 
 .sidebar {
@@ -71,6 +96,28 @@ body {
     background-color: var(--clr-bg2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: var(--radius);
+    border: 3px solid var(--clr-bg1);
+}
+
+.sidebar div{
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+.sidebar div p {
+    margin: 0;
+}
+
+.tablet-sidebar div p {
+    margin: 0;
+}
+
+.tablet-sidebar {
+    display: none;
+}
+
+.close-sidebar {
+    display: none;
 }
 
 .fields-container {
@@ -81,15 +128,35 @@ body {
 }
 
 .field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 40px;
     background-color: var(--clr-bg2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     border-radius: var(--radius);
+    border: 3px solid var(--clr-bg1);
+}
+
+h2 {
+    margin-bottom: 1vh;
+}
+
+h4 {
+    margin: 0;
+}
+
+.field h3 {
+    margin: 1vh 0;
+}
+
+.field p {
+    margin: 0;
 }
 
 .selected {
-    background-color: var(--clr-bg5);
+    border: 3px solid var(--clr-bg5);
 }
 
 .mobile-menu {
@@ -97,41 +164,199 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 10px;
-    background-color: #007bff;
+    background-image: linear-gradient(var(--clr-bg2), var(--clr-bg2), var(--clr-bg1));
     position: fixed;
     top: 0;
     right: 0;
-    width: 200px;
+    width: 50vw;
     height: 100%;
-    color: white;
+    color: var(--clr-text);
+    border-left: 2px solid var(--clr-bg1);
+    z-index: 50;
 }
 
 .mobile-menu button {
     background: none;
     border: none;
-    color: white;
+    border-bottom: 2px solid #00000000;
+    color: var(--clr-text);
     font-size: 16px;
+    width: fit-content;
     cursor: pointer;
 }
 
+.mobile-menu div {
+    margin-top: 5vh;
+}
+
+/* in werkelijkheid is deze 'blur' een lelijke achtergrond */
+#mobileBlur {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(100, 100, 100, 0.8);
+    z-index: 500;
+    display: none;
+}
+
+@media (max-width: 850px) {
+
+    /* ik wil telefoontjes in portrait forceren */
+    @media (max-height: 768px) {
+        @media (min-width: 768px) {
+            #mobileBlur {
+                display: block;
+                background-color: var(--clr-bg7);
+                z-index: 2000;
+            }
+        }
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .fields-container {
+        width: 100%;
+        grid-gap: 1.5vh;
+    }
+
+    .main-content {
+        flex-direction: column;
+        padding: 1.5vh;
+    }
+    
+    .tablet-sidebar {
+        align-self: center;
+        display: block;
+        width: 80vw;
+        text-align: center;
+        padding: 1.5vh;
+        margin: 1vh 0;
+        background-color: var(--clr-bg2);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: var(--radius);
+        border: 3px solid var(--clr-bg1);
+    }
+    
+    .tablet-sidebar div{
+        max-height: 19vh;
+        height: 19vh;
+        overflow-y: scroll;
+    }
+    
+    #tabletToggle {
+        border: 2px solid var(--clr-bg7);
+        font-size: 16px;
+        margin-top: 1vh;
+        padding: 0.5vw 0.5vh;
+        background-color: var(--clr-bg6);
+        color: var(--clr-text);
+        border-radius: 0.5rem;
+        cursor: pointer;
+    }
+
+    h2 {
+        margin: 0;
+        margin-bottom: 1vh;
+    }
+}
+
 @media (max-width: 768px) {
+
     .header #hamburgerMenu {
         display: block;
     }
+
     .header .menu {
         display: none;
     }
+
     .sidebar {
         display: none;
+        flex-direction: column;
         position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        width: 100%;
+        justify-content: space-around;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2vh;
+        width: 80vw;
+        max-height: 80vh;
+        overflow-y: scroll;
         z-index: 1000;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        background-color: var(--clr-bg1);
+        border: 5px solid var(--clr-bg7);
     }
+
+    .sidebar div{
+        max-height: 65vh;
+        overflow-y: scroll;
+    }
+
+    .sidebar div p {
+        margin: 0;
+    }
+
+    .close-sidebar {
+        display: block;
+        border: 2px solid var(--clr-bg7);
+        font-size: 16px;
+        margin-top: 1vh;
+        padding: 0.5vw 0.5vh;
+        background-color: var(--clr-bg6);
+        color: var(--clr-text);
+        border-radius: 0.5rem;
+        cursor: pointer;
+    }
+
     .fields-container {
         width: 100%;
+        grid-gap: 1.5vh;
     }
+
+    .main-content {
+        padding: 1.5vh;
+    }
+
+    .tablet-sidebar {
+        display: none;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-button {
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--clr-bg4);
+    border-radius: 10000px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--clr-bg5);
+}
+
+.noSelect {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.noSelect:focus {
+    outline: none !important;
 }

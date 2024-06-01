@@ -36,7 +36,6 @@ function addTeam() {
     const teamName = teamInput.value.trim();
     if (teamName === '') {
         shakeElement(document.getElementById('addTeamButton'));
-        setError('Please enter a team name!');
         return;
     }
     for (var i = 0; i < teams.length; i++) {
@@ -76,7 +75,9 @@ function setError(message) {
     var element = document.getElementById('errorField')
     element.textContent = message;
     setTimeout(function() {
-        element.textContent = "";
+        if (element.textContent == message) {
+            element.textContent = "";
+        }
     }, 5000);
 }
 
