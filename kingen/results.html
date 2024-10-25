@@ -7,9 +7,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="results.css">
 </head>
 <body>
-    <div id="results"></div>
+    <div id="results">
+        <div class="podium">
+            <div id="second" class="podium-spot">
+                <div class="podium-icon">
+                    <img src="assets/second.png" alt="Second Place">
+                </div>
+            </div>
+            <div id="first" class="podium-spot">
+                <div class="podium-icon">
+                    <img src="assets/crown.png" alt="First Place">
+                </div>
+            </div>
+            <div id="third" class="podium-spot">
+                <div class="podium-icon">
+                    <img src="assets/third.png" alt="Third Place">
+                </div>
+            </div>
+        </div>
+        <div id="team-list" class="team-list"></div>
+    </div>
+    <button id="refresh-button">Back to Team Manager</button>
     <script src="results.js"></script>
 </body>
 </html>

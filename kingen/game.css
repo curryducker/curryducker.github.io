@@ -84,10 +84,10 @@ body {
 
 .main-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1vw;
     gap: 1vw;
-    margin-top: 2vh;
+    height: 100%;
 }
 
 .sidebar {
@@ -122,9 +122,10 @@ body {
 
 .fields-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, calc(50% - 1vw));
     grid-gap: 1vw;
     width: 60%;
+    height: 100%;
 }
 
 .field {
@@ -149,6 +150,7 @@ h4 {
 
 .field h3 {
     margin: 1vh 0;
+    overflow-wrap: break-word;
 }
 
 .field p {
@@ -223,6 +225,7 @@ h4 {
 
     .fields-container {
         width: 100%;
+        grid-template-columns: repeat(2, calc(50% - 1.5vw));
         grid-gap: 1.5vh;
     }
 
@@ -318,9 +321,8 @@ h4 {
         cursor: pointer;
     }
 
-    .fields-container {
-        width: 100%;
-        grid-gap: 1.5vh;
+    .field {
+        padding: 5vw;
     }
 
     .main-content {
