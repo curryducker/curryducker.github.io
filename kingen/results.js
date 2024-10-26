@@ -28,7 +28,7 @@ window.onload = function() {
                 break;
         }
         
-        podiumSpot.innerHTML = `${podiumSpot.innerHTML}<p>${team.teamName}</p><p>${team.points}</p>`;
+        podiumSpot.innerHTML = `${podiumSpot.innerHTML}<p>${team.teamName}</p><p class="podium-points">${team.points} points</p>`;
 
         // Adjust font size for each podium spot if overflow is detected
         Array.from(podiumSpot.getElementsByTagName("p")).forEach(adjustFontSizeToFit);
@@ -37,7 +37,7 @@ window.onload = function() {
     // Display the rest of the teams in the team list
     leaderboardData.slice(3).forEach(team => {
         const teamP = document.createElement('p');
-        teamP.textContent = `${team.teamName} - ${team.points}`;
+        teamP.textContent = `${team.teamName} - ${team.points} points`;
         teamListDiv.appendChild(teamP);
 
         // Adjust font size for team list items if overflow is detected
