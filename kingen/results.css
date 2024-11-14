@@ -51,6 +51,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    margin-top: 20px;
 }
 
 /* Podium layout */
@@ -96,19 +97,24 @@ html, body {
     background-color: #ffbf00; /* Gold */
 }
 #second {
-    height: 25vh;
+    height: 26vh;
     background-color: #c0c0c0; /* Silver */
 }
 #third {
-    height: 21vh;
+    height: 24vh;
     background-color: #cd7f32; /* Bronze */
 }
 
 .podium-spot p {
-    font-size: 1.2em;
+    font-size: 1em;
     max-width: 100%;
     margin: 5px 0 0;
     overflow-wrap: break-word;
+}
+
+.podium-points {
+    border-top: 1px solid var(--clr-text);
+    padding-top: 3px;
 }
 
 /* Team list styling */

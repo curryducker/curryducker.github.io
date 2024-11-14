@@ -203,7 +203,7 @@ function nextUp() {
             field.querySelector('h3').textContent = teams[5 - i].teamName;
             field.querySelector('p').textContent = teams[5 - i].points + ' punten';
             if (i == 5) {
-                field.querySelector('h3').textContent += ' 👑'
+                field.querySelector('h4').textContent += ' 👑'
             }
         }
         i++;
