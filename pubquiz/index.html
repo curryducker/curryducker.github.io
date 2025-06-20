@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pubquiz Teams</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="../assets/knoppies/quizzz_icon.png">
+</head>
+
+<body class="noSelect" class="dark-mode">
+
+  <div class="navbar" style="display: flex; justify-content: end;">
+    <div class="menu-icon">
+      <span class="material-icons" id="menuIcon"></span>
+    </div>
+    <div class="navbar-right dark-mode-switch" style="margin: 10px;">
+      <div class="dark-mode-icon">
+        <span class="material-icons" id="modeIcon"></span>
+      </div>
+      <input type="checkbox" id="darkModeToggle">
+      <label for="darkModeToggle"></label>
+    </div>
+  </div>
+
+  <div class="center-content">
+    <h1 class="text">Pubquiz Teams</h1>
+    <form onsubmit="sendContact(event)"
+      style="position: relative; display: flex; flex-direction: column; align-items: center;">
+      <label class="text" for="team-name" style="margin-bottom: 10px;">Team Naam</label>
+      <input style="margin-bottom: 10px;" type="text" id="team-name" name="Team Naam" required>
+      <label class="text" for="name" style="margin-bottom: 10px;">Team Captain</label>
+      <input type="text" id="name" name="Team Captain" required>
+      <hr style="width: 50%; margin: 20px 0px;">
+      <label class="text" for="team-met" style="margin-bottom: 10px;">Teamgenoten</label>
+      <textarea class="form-control" id="team-met" rows="3" style="margin-bottom: 10px;"></textarea>
+      <label class="text" for="kleurtje" style="margin-bottom: 10px;">Team Kleur</label>
+      <input style="margin-bottom: 10px; width: 25%;" type="color" id="kleurtje" name="Team Kleur" required>
+
+      <label class="toggle-container">
+        <input type="checkbox" id="foto" name="Team Foto" value="Ik stuur een team foto door via Whatsapp / Discord.">
+        <span class="toggle-slider"></span>
+        <span class="text" style="margin-left: 5px;">Ik stuur een team foto door via Whatsapp / Discord.</span>
+      </label>
+
+      <label class="toggle-container">
+        <input type="checkbox" id="geluidje" name="Team Foto"
+          value="Ik stuur een geluidje van korter dan 5 seconden voor de knop door via Whatsapp / Discord.">
+        <span class="toggle-slider"></span>
+        <span class="text" style="margin-left: 5px;">Ik stuur een geluidje van korter dan 5 seconden voor de knop door
+          via Whatsapp / Discord.</span>
+      </label>
+
+      <input type="submit" value="Submit" class="button">
+    </form>
+    <script>
+      async function sendContact(ev) {
+        ev.preventDefault();
+
+        const senderName = document.getElementById('name').value;
+        const teamName = document.getElementById('team-name').value;
+        const teamMet = document.getElementById('team-met').value;
+        const kleurtje = document.getElementById('kleurtje').value;
+        const stuurtFoto = document.getElementById('foto').checked;
+        const stuurtGeluid = document.getElementById('geluidje').checked;
+
+        const webhookBody = {
+          embeds: [{
+            title: teamName,
+            fields: [
+              { name: 'Captain', value: senderName },
+              { name: 'Teamgenoten', value: teamMet },
+              { name: 'Kleur', value: kleurtje },
+              { name: 'Foto?', value: stuurtFoto },
+              { name: 'Geluidje?', value: stuurtGeluid }
+            ]
+          }],
+        };
+
+        await fetch('https://discord.com/api/webhooks/1385629505833402490/HSkOgjX4YeAeh3MJlVmkAq3RgF2zSNqlo7823_OvtjH30PX7E0_xboY5VMzEqnl79I93', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(webhookBody)
+        });
+
+        alert('Team succesvol verstuurd!');
+      }
+    </script>
+  </div>
+
+  <div class="footer">
+    <div class="footer-social">
+      <a href="https://modrinth.com/user/curryducker" target="_blank" rel="noopener noreferrer"><img
+          src="../assets/icons/modrinth.png" alt="Modrinth"></a>
+      <a href="https://curseforge.com/members/curryduckergames/projects" target="_blank" rel="noopener noreferrer"><img
+          src="../assets/icons/curseforge.jpg" alt="CurseForge" class="cf-icon"></a>
+      <a href="https://teamdiopside.nl/discord" target="_blank" rel="noopener noreferrer"><img
+          src="../assets/icons/discord.png" alt="Discord"></a>
+    </div>
+  </div>
+
+  <script src="../script.js"></script>
+
+</body>
+
+</html>
